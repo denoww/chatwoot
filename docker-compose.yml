@@ -6,19 +6,8 @@ services:
       - "3009:3009"
     env_file: .env
     command: bundle exec rails s -p 3009 -b 0.0.0.0
-    networks:
-      - default
-      - chatwoot_default
-
   chatwoot_worker:
     image: chatwoot/chatwoot:latest
     restart: unless-stopped
     env_file: .env
     command: bundle exec sidekiq -C config/sidekiq.yml
-    networks:
-      - default
-      - chatwoot_default
-
-networks:
-  chatwoot_default:
-    name: chatwoot_default
