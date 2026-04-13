@@ -38,9 +38,9 @@ services:
       redis:
         condition: service_healthy
     ports:
-      - "3030:3000"
+      - "3009:3009"
     env_file: .env
-    command: bundle exec rails s -p 3000 -b 0.0.0.0
+    command: bundle exec rails s -p 3009 -b 0.0.0.0
     networks:
       - default
       - chatwoot_default
